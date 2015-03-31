@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Reservations</h1>
+
+<div class="modal">
+  <label for="modal-1">
+    <div class="modal-trigger">Click to Make a Reservation</div>
+  </label>
+  <input class="modal-state" id="modal-1" type="checkbox" />
+  <div class="modal-fade-screen">
+    <div class="modal-inner">
+      <label class="modal-close" for="modal-1"></label>
+      <h1>Make a reservation</h1>
+      <p class="modal-intro">Intro text lorem ipsum dolor sit ametm, quas, eaque facilis aliquid cupiditate tempora cumque ipsum accusantium illo modi commodi  minima.</p>
+      <p class="modal-content"><%= render :partial => 'form' %></p>
+    </div>
+  </div>
+</div>
+
+<div id='calendar'></div>
+
+<ul>
+  <% @reservations.each do |reservation| %>
+    <li><%= render reservation %></li>
+  <% end %>
+</ul>
+
+
+<br>
+
+<%= link_to 'New Reservation', new_reservation_path %> |
+
+<!-- :type_of_reservation, :date, :time_in, :time_out, :open_to_public -->

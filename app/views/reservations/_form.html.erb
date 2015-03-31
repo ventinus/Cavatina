@@ -1,0 +1,53 @@
+<% if @reservation %>
+  <%= form_for(@reservation) do |f| %>
+  <% if @reservation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@reservation.errors.count, "error") %> prohibited this reservation from being saved:</h2>
+
+      <ul>
+      <% @reservation.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :type_of_reservation %><br>
+    <%= f.select(:type_of_reservation, options_for_select(["Rehearsal", "Concert", "Lecture", "Recording Session"])) %>
+  </div>
+  <div class="field">
+    <%= f.label :room_id %><br>
+    <%= f.select :room_id,
+      Room.all.collect { |r| [r.name, r.id]},
+      :selected => @room_id %>
+  </div>
+  <div class="field">
+    <%= f.label :date %><br>
+    <%= f.date_field :date %>
+  </div>
+  <div class="field">
+    <%= f.label :time_in %><br>
+    <%= f.time_field :time_in %>
+  </div>
+  <div class="field">
+    <%= f.label :time_out %><br>
+    <%= f.time_field :time_out %>
+  </div>
+  <div class="field">
+    <%= f.label :open_to_public %><br>
+    <%= f.check_box :open_to_public %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+  <% end %>
+<% end %>

@@ -1,0 +1,24 @@
+<b><%= reservation.title %></b>
+<% if current_user && (reservation.user_id == current_user.id ) %>
+	<%= link_to "Edit", edit_reservation_path(reservation) %>
+	<%= link_to "Delete", reservation, method: :delete, confirm: 'Are you sure?' %>
+<% end %>
+<div class="description" style="background-color: #EEEEEE;">
+  <%= reservation.description %>
+</div>
+<p>Type: <%= reservation.type_of_reservation %>
+, Date: <%= reservation.date %>
+, Room: <%= reservation.room.name %>
+, Start Time: <%= reservation.time_in %>
+, End Time: <%= reservation.time_out %>
+, Open to the Public? <%= reservation.open_to_public %>
+, Made by: <%= reservation.user.name %></p>
+
+<%= link_to "Reply", new_post_path(reservation_id: reservation.id) %>
+<ul>
+  <% reservation.replies.each do |reply| %>
+    <li>
+      <%= render reply %>
+    </li>
+  <% end %>
+</ul>

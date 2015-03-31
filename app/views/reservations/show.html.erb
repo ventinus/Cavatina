@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @reservation.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @reservation.description %>
+</p>
+
+<p>
+  <strong>Type of reservation:</strong>
+  <%= @reservation.type_of_reservation %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @reservation.date %>
+</p>
+
+<p>
+  <strong>Time in:</strong>
+  <%= @reservation.time_in %>
+</p>
+
+<p>
+  <strong>Time out:</strong>
+  <%= @reservation.time_out %>
+</p>
+
+<p>
+  <strong>Open to public:</strong>
+  <%= @reservation.open_to_public %>
+</p>
+
+<%= link_to 'Edit', edit_reservation_path(@reservation) %> |
+<%= link_to 'Back', reservations_path %> |

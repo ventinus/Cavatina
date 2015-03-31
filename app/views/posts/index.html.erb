@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Posts</h1>
+
+<ul>
+  <% @posts.each do |post| %>
+    <li><%= render post %></li>
+  <% end %>
+</ul>
+
+<br>
+
+<%= link_to 'New Post', new_post_path %> |
