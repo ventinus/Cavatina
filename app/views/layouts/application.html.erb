@@ -11,7 +11,7 @@
 <header class="navigation" role="banner">
   <div class="navigation-wrapper">
     <a href="/" class="logo">
-      <img src="/images/logo.jpg" alt="Logo Image">
+      <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1.png" alt="Logo Image">
     </a>
     <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">MENU</a>
     <nav role="navigation">
@@ -37,7 +37,7 @@
         </form>
       </div>
       <% if user_signed_in? %>
-      	<a href="/users/sign_out" class="sign-up">Logout</a>
+      	<a rel="nofollow" data-method="delete" href="/users/sign_out" class="sign-up">Logout</a>
       	<a href="/users/edit" class="sign-up">Edit Profile</a>      	
       <% else %>
       	<a href="/users/sign_up" class="sign-up">Sign Up</a>
@@ -47,11 +47,44 @@
   </div>
 </header>
 
-<% if user_signed_in? %>
-  Welcome, <strong><%= current_user.name %></strong>
-<% end %>
+<div class="user-info">
+  <% if user_signed_in? %>
+    Welcome, <strong><%= current_user.name %></strong>
+    <!-- <%= link_to "Sign out", destroy_user_session_path, :method => :delete %> -->
+  <% end %>
+</div>
 
 <%= yield %>
+
+<footer class="footer" role="contentinfo">
+  <div class="footer-logo">
+    <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1.png" alt="Logo image">
+  </div>
+  <div class="footer-links">
+    <ul>
+      <li><h3>Content</h3></li>
+      <li><a href="javascript:void(0)">About</a></li>
+      <li><a href="javascript:void(0)">Contact</a></li>
+      <li><a href="/reservations">Calendar/Events</a></li>
+    </ul>
+    <ul>
+      <li><h3>Follow Us</h3></li>
+      <li><a href="javascript:void(0)">Facebook</a></li>
+      <li><a href="javascript:void(0)">Twitter</a></li>
+      <li><a href="javascript:void(0)">YouTube</a></li>
+    </ul>
+    <ul>
+      <li><h3>Legal</h3></li>
+      <li><a href="javascript:void(0)">Terms and Conditions</a></li>
+      <li><a href="javascript:void(0)">Privacy Policy</a></li>
+    </ul>
+  </div>
+
+  <hr>
+
+  <p>We are responsible for the things you may or may not see on our page.</p>
+</footer>
+
 
 </body>
 </html>

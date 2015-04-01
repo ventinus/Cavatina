@@ -3,8 +3,8 @@ source 'https://rubygems.org'
 
 gem 'devise', '~> 3.4.1'
 
-gem 'bourbon'
-
+gem 'bourbon', '~> 4.0'
+gem 'bitters'
 gem 'neat'
 
 # gem 'cancancan', '~> 1.10'

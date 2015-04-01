@@ -1,5 +1,6 @@
 -modal doesnt close on clicking the x
 -modal doesnt display form
+-logo image error 404
 
 think about for DRY
 -could include ensure_current_user_creator! method in application_controller? to cover both posts and reservations

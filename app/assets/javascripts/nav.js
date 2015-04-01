@@ -10,4 +10,15 @@ $(document).on('ready page:load', function() {
       }
     });
   });
+
+  $(window).on('scroll',function() {
+    var scrolltop = $(this).scrollTop();
+    if(scrolltop <= 55) {
+      $('.navigation').fadeIn(700);
+    }
+     
+    else if(scrolltop >= 50) {
+      $('.navigation').fadeOut(700);
+    }
+  });
 });
