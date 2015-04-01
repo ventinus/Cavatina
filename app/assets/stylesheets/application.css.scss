@@ -376,8 +376,33 @@ header.navigation {
 div.user-info {
   padding-top: 65px;
 }
+// Uncomment this for a sticky footer.
+//
+// .wrapper-for-content-outside-of-footer {
+//   min-height: 100%;
+//   height: auto !important;
+//   height: 100%;
+//   margin: 0 auto -4em;
+// }
 
-.footer {
+// html, body {
+//  height: 100%;
+// }
+
+// .wrapper-for-content-outside-of-footer:after {
+//   content: "";
+//   display: block;
+// }
+
+// .footer-2, .wrapper-for-content-outside-of-footer:after {
+//   height: 17em;
+
+//   @include media($large-screen) {
+//     height: 4em;
+//   }
+// }
+
+.footer-2 {
   ///////////////////////////////////////////////////////////////////////////////////
   $base-spacing: 1.5em !default;
   $base-accent-color: #477DCA !default;
@@ -385,12 +410,13 @@ div.user-info {
   $large-screen: em(860) !default;
   
   ul {
+    margin: 0;
     padding: 0;
+    line-height: 1.5em;
   }
 
   li {
     list-style: none;
-    line-height: 1.5em;
   }
 
   a {
@@ -404,46 +430,46 @@ div.user-info {
   $footer-disclaimer-color: transparentize($footer-color, 0.6);
 
   background: $footer-background;
-  padding: ($base-spacing * 2) $gutter;
+  padding: $base-spacing;
   width: 100%;
+  display: inline-block;
 
   .footer-logo {
-    margin-bottom: 2em;
-    text-align: center;
+    margin-right: 1em;
+    margin-bottom: 1em;
 
-    img {
-      height: 3em;
+    @include media($large-screen) {
+      float: left;
+      margin-bottom: 0;
     }
+  }
+
+  .footer-logo img {
+    height: 1.6em;
   } 
 
-  .footer-links {
-    @include clearfix;
-    margin-bottom: $base-spacing;
-
-    @include media($medium-screen) {
-      @include shift(3);
-    }
-  }
-
   ul {
-    margin-bottom: $base-spacing * 2;
-
-    @include media($medium-screen) {
-      @include span-columns(3);
-      @include omega(3n);
-      @include clearfix;
+    margin-bottom: 1em;
+    
+    @include media($large-screen) {
+      float: left;
+      line-height: 1.8em;
+      margin-left: 1em;
+      margin-bottom: 0;
     }
   }
 
-  li {
-    text-align: center;
+  ul li {
+    font-weight: 800;
+    padding-right: 1em;
 
-    @include media($medium-screen) {
+    @include media($large-screen) {
+      display: inline;
       text-align: left;
     }
   }
 
-  li a {
+  ul li a {
     color: $footer-link-color;
 
     &:focus,
@@ -452,25 +478,45 @@ div.user-info {
     }
   }
 
-  li h3 {
-    color: $footer-color;
-    font-size: 1em;
-    font-weight: 800;
-    margin-bottom: 0.4em;
-  }  
+  .footer-secondary-links {
+    @include media($large-screen) {
+      float: right;
+    }
 
-  hr {
-    border: 1px solid transparentize($footer-disclaimer-color, 0.3);
-    margin: 0 auto $base-spacing;
-    width: 12em;
-  }
+    li {
+      font-size: 0.8em;
+      font-weight: 400;
+    }
 
-  p {
-    color: $footer-disclaimer-color;
-    font-size: 0.9em;
-    line-height: 1.5em;
-    margin: auto;
-    max-width: 35em;
-    text-align: center;
+    ul.footer-social {
+      margin-top: 1em;
+
+      @include media($large-screen) {
+        float: right;
+        margin-top: 0;
+      }
+
+      li {
+        font-size: 1em;
+        float: left;
+        line-height: 0;
+        padding-right: 0.7em;
+
+        &:last-child {
+          padding-right: 0;
+        }
+      }
+
+      img {
+        height: 1.6em;
+        opacity: 0.7;
+        padding: 1px;
+
+        &:focus,
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
   }
 }
