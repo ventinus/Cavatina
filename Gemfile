@@ -1,14 +1,13 @@
 source 'https://rubygems.org'
 
-
 gem 'devise', '~> 3.4.1'
-
 gem 'bourbon', '~> 4.0'
 gem 'bitters'
 gem 'neat'
 
-# gem 'cancancan', '~> 1.10'
+gem 'rails_12factor', group: :production
 
+# gem 'cancancan', '~> 1.10'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'

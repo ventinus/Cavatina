@@ -11,5 +11,7 @@ Rails.application.routes.draw do
   get '/contact', to: 'welcome#contact'
   get '/privacy_policy', to: 'welcome#privacy_policy'
   get '/terms_and_conditions', to: 'welcome#terms_and_conditions'
-  
+
+
+  get "*path", to: redirect('/')
 end
