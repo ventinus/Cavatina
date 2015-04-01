@@ -2,6 +2,61 @@
 
 <h1>All of our Amazing Rooms</h1>
 
+<ul class="accordion-tabs">
+  <li class="tab-header-and-content">
+    <a href="javascript:void(0)" class="is-active tab-link"><%= @rooms[0].name %></a>
+    <div class="tab-content">
+      <%= image_tag("Carnegie-Hall-New-York-City.jpg", :alt => "cavatina rooms") %>
+      <p><%= @rooms[0].description %> </br>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tincidunt pellentesque lorem, id suscipit dolor rutrum id. Morbi facilisis porta volutpat. Fusce adipiscing, mauris quis congue tincidunt, sapien purus suscipit odio, quis dictum odio tortor in sem. Ut sit amet libero nec orci mattis fringilla. Praesent eu ipsum in sapien tincidunt molestie sed ut magna. Nam accumsan dui at orci rhoncus pharetra tincidunt elit ullamcorper. Sed ac mauris ipsum. Nullam imperdiet sapien id purus pretium id aliquam mi ullamcorper.
+        <% if current_user && current_user.admin? %>
+          <%= link_to 'Edit', edit_room_path(@rooms[0]) %> |
+          <%= link_to 'Destroy', @rooms[0], method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% end %>
+      </p>
+    </div>
+  </li>
+  <li class="tab-header-and-content">
+    <a href="javascript:void(0)" class="tab-link"><%= @rooms[1].name %></a>
+    <div class="tab-content">
+      <%= image_tag("Symphony_Hall_Birmingham.jpg", :alt => "cavatina rooms") %>
+      <p><%= @rooms[1].description %></br>
+      Ut laoreet augue et neque pretium non sagittis nibh pulvinar. Etiam ornare tincidunt orci quis ultrices. Pellentesque ac sapien ac purus gravida ullamcorper. Duis rhoncus sodales lacus, vitae adipiscing tellus pharetra sed. Praesent bibendum lacus quis metus condimentum ac accumsan orci vulputate. Aenean fringilla massa vitae metus facilisis congue. Morbi placerat eros ac sapien semper pulvinar. Vestibulum facilisis, ligula a molestie venenatis, metus justo ullamcorper ipsum, congue aliquet dolor tortor eu neque. Sed imperdiet, nibh ut vestibulum tempor, nibh dui volutpat lacus, vel gravida magna justo sit amet quam. Quisque tincidunt ligula at nisl imperdiet sagittis. Morbi rutrum tempor arcu, non ultrices sem semper a. Aliquam quis sem mi.
+        <% if current_user && current_user.admin? %>
+          <%= link_to 'Edit', edit_room_path(@rooms[1]) %> |
+          <%= link_to 'Destroy', @rooms[1], method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% end %>
+      </p>
+    </div>
+  </li>
+  <li class="tab-header-and-content">
+    <a href="javascript:void(0)" class="tab-link"><%= @rooms[2].name %></a>
+    <div class="tab-content">
+      <%= image_tag("goldenhall.jpg", :alt => "cavatina rooms") %>
+      <p><%= @rooms[2].description %></br>
+      onec mattis mauris gravida metus laoreet non rutrum sem viverra. Aenean nibh libero, viverra vel vestibulum in, porttitor ut sapien. Phasellus tempor lorem id justo ornare tincidunt. Nulla faucibus, purus eu placerat fermentum, velit mi iaculis nunc, bibendum tincidunt ipsum justo eu mauris. Nulla facilisi. Vestibulum vel lectus ac purus tempus suscipit nec sit amet eros. Nullam fringilla, enim eu lobortis dapibus, quam magna tincidunt nibh, sit amet imperdiet dolor justo congue turpis.
+        <% if current_user && current_user.admin? %>
+          <%= link_to 'Edit', edit_room_path(@rooms[2]) %> |
+          <%= link_to 'Destroy', @rooms[2], method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% end %>
+      </p>    
+    </div>
+  </li>
+  <li class="tab-header-and-content">
+    <a href="javascript:void(0)" class="tab-link"><%= @rooms[3].name %></a>
+    <div class="tab-content">
+      <%= image_tag("leipzig.jpg", :alt => "cavatina rooms") %>
+      <p><%= @rooms[3].description %></br>
+      Sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Phasellus dui urna.
+        <% if current_user && current_user.admin? %>
+          <%= link_to 'Edit', edit_room_path(@rooms[3]) %> |
+          <%= link_to 'Destroy', @rooms[3], method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% end %>
+      </p>
+    </div>
+  </li>
+</ul>
+
 <br>
 
 <% if current_user && current_user.admin? %>
