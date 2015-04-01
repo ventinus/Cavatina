@@ -7,6 +7,7 @@ class ReservationsController < ApplicationController
   # GET /reservations.json
   def index
     @reservations = Reservation.roots
+    @reservation = Reservation.new
     respond_to do |format|
       format.html { render :index }
       format.json
@@ -32,6 +33,10 @@ class ReservationsController < ApplicationController
   # POST /reservations.json
   def create
     @reservation = Reservation.new(reservation_params)
+    start_time = reservation_params["time_in(4i)"] + ":" + reservation_params["time_in(5i)"]
+    end_time = reservation_params["time_out(4i)"] + ":" + reservation_params["time_out(5i)"]
+    @reservation.time_in = start_time
+    @reservation.time_out = end_time
     @reservation.user_id = current_user.id
     respond_to do |format|
       if @reservation.save
