@@ -5,6 +5,8 @@ gem 'bourbon', '~> 4.0'
 gem 'bitters'
 gem 'neat'
 
+gem 'materialize-sass'
+
 gem 'rails_12factor', group: :production
 
 # gem 'cancancan', '~> 1.10'

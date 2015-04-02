@@ -22,3 +22,8 @@ $(document).on('ready page:load', function() {
     }
   });
 });
+
+
+$(document).ready(function(){
+  $('.parallax').parallax();
+});
