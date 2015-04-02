@@ -11,6 +11,18 @@
   background-color: grey;
 }
 
+.something {
+  @include outer-container(900px);
+
+  .form-left {
+    @include span-columns(6);
+  }
+
+  .form-right{
+    @include span-columns(6);
+  }
+}
+
 
 .modal {
   ///////////////////////////////////////////////////////////////////////////////////

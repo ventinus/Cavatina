@@ -1,8 +1,8 @@
 -modal doesnt close on clicking the x
 -logo image error 404
 -get search to net results
--finish fixing time input
 -style form
+-figure out how to get images to heroku
 
 think about for DRY
 -could include ensure_current_user_creator! method in application_controller? to cover both posts and reservations
