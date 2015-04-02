@@ -24,6 +24,6 @@ $(document).on('ready page:load', function() {
 });
 
 
-$(document).ready(function(){
+$(document).on('ready page:load', function(){
   $('.parallax').parallax();
 });
