@@ -10,7 +10,11 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.new
     respond_to do |format|
       format.html { render :index }
-      format.json
+      format.json do 
+        if params[:room_id]
+          @reservations = @reservations.select{ |reserve| reserve.room_id == params[:room_id].to_i }
+        end
+      end
     end
   end
 

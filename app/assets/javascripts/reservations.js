@@ -8,6 +8,7 @@ var r1Events = {
     room_id: 2, //Mountain king hall
   },
   backgroundColor: 'yellow',
+  textColor: 'black',
   error: function(){
     console.log("error fetching events");
   }
@@ -17,7 +18,7 @@ var r2Events = {
   data: {
     room_id: 3, //al pacino
   },
-  backgroundColor: 'black',
+  backgroundColor: 'blue',
   error: function(){
     console.log("error fetching events");
   }
@@ -43,20 +44,50 @@ var r4Events = {
   }
 };
 
+var removeAllEventSources = function(){
+  $('#calendar').fullCalendar('removeEventSource', allMyEvents);
+  $('#calendar').fullCalendar('removeEventSource', r1Events);
+  $('#calendar').fullCalendar('removeEventSource', r2Events);
+  $('#calendar').fullCalendar('removeEventSource', r3Events);
+  $('#calendar').fullCalendar('removeEventSource', r4Events);  
+};
 
-$(function(){
-  $('#button-1').on('change', function() {
+$(document).on('ready page:load', function(){
+  $('.button-1').on('change', function() {
     console.log("clicked first one");
-    $("#calendar").fullCalendar('removeEventSource', r1Events);
-    $("#calendar").fullCalendar('removeEventSource', r2Events);
-    $("#calendar").fullCalendar('removeEventSource', r3Events);
-    $("#calendar").fullCalendar('removeEventSource', r4Events);
-    $("#calendar").fullCalendar('addEventSource', allMyEvents);
+    if($(this).is(":checked")){
+      removeAllEventSources();
+      $("#calendar").fullCalendar('addEventSource', allMyEvents);
+    }
   });
-  $('#button-2').on('change', function(){
+  $('.button-2').on('change', function(){
     console.log('clicked number 2');
-    $("#calendar").fullCalendar('removeEventSource', allMyEvents);
-    $("#calendar").fullCalendar('addEventSource', r1Events);
+    if($(this).is(":checked")){
+      removeAllEventSources();
+      $("#calendar").fullCalendar('addEventSource', r1Events);
+    }
+  });
+  $('.button-3').on('change', function(){
+    var room_id  = $(this).val();
+    console.log('clicked number 2');
+    if($(this).is(":checked")){
+      removeAllEventSources();
+      $("#calendar").fullCalendar('addEventSource', r2Events);
+    }
+  });
+  $('.button-4').on('change', function(){
+    console.log('clicked number 2');
+    if($(this).is(":checked")){
+      removeAllEventSources();
+      $("#calendar").fullCalendar('addEventSource', r3Events);
+    }
+  });
+  $('.button-5').on('change', function(){
+    console.log('clicked number 2');
+    if($(this).is(":checked")){
+      removeAllEventSources();
+      $("#calendar").fullCalendar('addEventSource', r4Events);
+    }
   });
 });
 
@@ -81,6 +112,7 @@ $(document).on('ready page:load', function() {
     // editable: true,
     eventLimit: true,
     allDayDefault: false,
+    eventTextColor: 'white',
 
     eventSources: allMyEvents,
 
