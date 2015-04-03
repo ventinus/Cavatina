@@ -8,3 +8,6 @@ The purpose of this app/site is to provide information on a music establishment 
 
 Not nearly finished and happy to hear suggestions!
 
+Update:
+Here is the link to the heroku page:
+https://pumpkin-shortcake-2041.herokuapp.com/

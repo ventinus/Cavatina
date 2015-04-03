@@ -1,20 +1,65 @@
-$(function() {
-  $("#modal-1").on("change", function() {
-    if ($(this).is(":checked")) {
-      $("body").addClass("modal-open");
-    } else {
-      $("body").removeClass("modal-open");
-    }
-  });
+var allMyEvents = {
+  url: '/reservations.json',
+  backgroundColor: 'black'
+};
+var r1Events = {
+  url: '/reservations.json',
+  data: {
+    room_id: 2, //Mountain king hall
+  },
+  backgroundColor: 'yellow',
+  error: function(){
+    console.log("error fetching events");
+  }
+};
+var r2Events = {
+  url: '/reservations.json',
+  data: {
+    room_id: 3, //al pacino
+  },
+  backgroundColor: 'black',
+  error: function(){
+    console.log("error fetching events");
+  }
+};
+var r3Events = {
+  url: '/reservations.json',
+  data: {
+    room_id: 4, //clear heights
+  },
+  backgroundColor: 'green',
+  error: function(){
+    console.log("error fetching events");
+  }
+};
+var r4Events = {
+  url: '/reservations.json',
+  data: {
+    room_id: 5, //hall of destiny
+  },
+  backgroundColor: 'tomato'  ,
+  error: function(){
+    console.log("error fetching events");
+  }
+};
 
-  $(".modal-fade-screen, .modal-close").on("click", function() {
-    $(".modal-state:checked").prop("checked", false).change();
-  });
 
-  $(".modal-inner").on("click", function(e) {
-    e.stopPropagation();
+$(function(){
+  $('#button-1').on('change', function() {
+    console.log("clicked first one");
+    $("#calendar").fullCalendar('removeEventSource', r1Events);
+    $("#calendar").fullCalendar('removeEventSource', r2Events);
+    $("#calendar").fullCalendar('removeEventSource', r3Events);
+    $("#calendar").fullCalendar('removeEventSource', r4Events);
+    $("#calendar").fullCalendar('addEventSource', allMyEvents);
+  });
+  $('#button-2').on('change', function(){
+    console.log('clicked number 2');
+    $("#calendar").fullCalendar('removeEventSource', allMyEvents);
+    $("#calendar").fullCalendar('addEventSource', r1Events);
   });
 });
+
 
 $(document).on('ready page:load', function() {
   console.log('dup')
@@ -37,7 +82,7 @@ $(document).on('ready page:load', function() {
     eventLimit: true,
     allDayDefault: false,
 
-    events: '/reservations.json',
+    eventSources: allMyEvents,
 
     views: {
       agenda: {
@@ -67,42 +112,27 @@ $(document).on('ready page:load', function() {
       $(this).css('border-color', 'red');
       $(this).fullCalendar('updateEvent', event);
     }
-
-    
-    // dayClick: function(date) {
-
-    //   var myCalendar = $('#calendar'); 
-    //   myCalendar.fullCalendar();
-    //   var myEvent = {
-    //     title:"my new event",
-    //     allDay: false,
-    //     start: new Date(),
-    //     end: new Date()
-    //   };
-    //   myCalendar.fullCalendar( 'renderEvent', 'addEvent' );
+  });
+});
 
 
-    //   function refreshCalendar(){
-    //     $("#calendar").fullCalendar( 'refetchEvents' );
-    //   };
 
-    //   function errorHandler(error){
-    //     console.log("error: ", error);
-    //   };
+// modal button
 
-    //   function addEvent(event, refreshCalendar, errorHandler) {
-    //     $.ajax({
-    //       type: "POST",
-    //       data: myEvent,
-    //       dataType: "JSON",
-    //       success: refreshCalendar,
-    //       error: errorHandler,
-    //     });
-    //   };
-    // },
+$(function() {
+  $("#modal-1").on("change", function() {
+    if ($(this).is(":checked")) {
+      $("body").addClass("modal-open");
+    } else {
+      $("body").removeClass("modal-open");
+    }
+  });
 
+  $(".modal-fade-screen, .modal-close").on("click", function() {
+    $(".modal-state:checked").prop("checked", false).change();
+  });
 
-    // eventMouseover: function( event, jsEvent, view ) {},
-
+  $(".modal-inner").on("click", function(e) {
+    e.stopPropagation();
   });
 });
