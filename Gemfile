@@ -6,6 +6,7 @@ gem 'bitters'
 gem 'neat'
 
 gem 'materialize-sass'
+gem 'skrollr-rails', '~> 0.6.29'
 
 gem 'rails_12factor', group: :production
 

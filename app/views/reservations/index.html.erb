@@ -2,20 +2,22 @@
 
 <h1>Listing Reservations</h1>
 
-<div class="modal">
-  <label for="modal-1">
-    <div class="modal-trigger">Click to Make a Reservation</div>
-  </label>
-  <input class="modal-state" id="modal-1" type="checkbox" />
-  <div class="modal-fade-screen">
-    <div class="modal-inner">
-      <label class="modal-close" for="modal-1"></label>
-      <h1>Make a reservation</h1>
-      <p class="modal-intro"></p>
-      <p class="modal-content"><div class="something"><%= render 'form' %></div></p>
+<% if user_signed_in? %>
+  <div class="modal">
+    <label for="modal-1">
+      <div class="modal-trigger">Click to Make a Reservation</div>
+    </label>
+    <input class="modal-state" id="modal-1" type="checkbox" />
+    <div class="modal-fade-screen">
+      <div class="modal-inner">
+        <label class="modal-close" for="modal-1"></label>
+        <h1>Make a reservation</h1>
+        <p class="modal-intro"></p>
+        <p class="modal-content"><div class="something"><%= render 'form' %></div></p>
+      </div>
     </div>
   </div>
-</div>
+<% end %>
 
 <div id='calendar'></div>
 
