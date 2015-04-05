@@ -40,11 +40,11 @@
   </div>
   <div class="field">
     <%= f.label :time_in %><br>
-    <%= f.time_select(:time_in, {minute_step: 15, ampm: true, start_hour: 7, end_hour: 23}) %>
+    <%= f.time_select(:time_in, {minute_step: 15, ampm: true, start_hour: 7, end_hour: 23, selected: 10}) %>
   </div>
   <div class="field">
     <%= f.label :time_out %><br>
-    <%= f.time_select(:time_out, {minute_step: 15, ampm: true, start_hour: 7, end_hour: 23}) %>
+    <%= f.time_select(:time_out, {minute_step: 15, ampm: true, start_hour: 7, end_hour: 23, selected: 11}) %>
   </div>
   <div class="field">
     <%= f.label :open_to_public %><br>

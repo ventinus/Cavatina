@@ -54,36 +54,30 @@ var removeAllEventSources = function(){
 
 $(document).on('ready page:load', function(){
   $('.button-1').on('change', function() {
-    console.log("clicked first one");
     if($(this).is(":checked")){
       removeAllEventSources();
       $("#calendar").fullCalendar('addEventSource', allMyEvents);
     }
   });
   $('.button-2').on('change', function(){
-    console.log('clicked number 2');
     if($(this).is(":checked")){
       removeAllEventSources();
       $("#calendar").fullCalendar('addEventSource', r1Events);
     }
   });
   $('.button-3').on('change', function(){
-    var room_id  = $(this).val();
-    console.log('clicked number 2');
     if($(this).is(":checked")){
       removeAllEventSources();
       $("#calendar").fullCalendar('addEventSource', r2Events);
     }
   });
   $('.button-4').on('change', function(){
-    console.log('clicked number 2');
     if($(this).is(":checked")){
       removeAllEventSources();
       $("#calendar").fullCalendar('addEventSource', r3Events);
     }
   });
   $('.button-5').on('change', function(){
-    console.log('clicked number 2');
     if($(this).is(":checked")){
       removeAllEventSources();
       $("#calendar").fullCalendar('addEventSource', r4Events);
@@ -125,13 +119,15 @@ $(document).on('ready page:load', function() {
     },
 
     dayClick: function(date, jsEvent, view) {
-      if (view.name === "month" || "week") {
-          $('#calendar').fullCalendar('gotoDate', date);
-          $('#calendar').fullCalendar('changeView', 'agendaDay');
+      if (view.name == "month" || view.name == "agendaWeek") {
+        $('#calendar').fullCalendar('gotoDate', date);
+        $('#calendar').fullCalendar('changeView', 'agendaDay');
       } else {
-        
-      };
-      console.log('Clicked on: ' + date.format());
+        // check out reservation2.js code
+      }
+      
+
+      console.log('Clicked on: ' + date.format("hh:mm"));
       console.log('Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY);
       console.log('Current view: ' + view.name);
     },
@@ -151,7 +147,7 @@ $(document).on('ready page:load', function() {
 
 // modal button
 
-$(function() {
+$(document).on('ready page:load', function(){
   $("#modal-1").on("change", function() {
     if ($(this).is(":checked")) {
       $("body").addClass("modal-open");

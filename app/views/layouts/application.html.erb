@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Final</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
@@ -11,7 +11,7 @@
 <header class="navigation" role="banner">
   <div class="navigation-wrapper">
     <a href="/" class="logo">
-      <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1.png" alt="Logo Image">
+      <%= image_tag("logo_header_360.png", :alt => "cavatina rooms") %>
     </a>
     <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">MENU</a>
     <nav role="navigation">
@@ -27,22 +27,13 @@
         </li>
       </ul>
     </nav>
-    <div class="navigation-tools">
-      <div class="search-bar">
-        <form role="search">
-          <input type="search" placeholder="Enter Search" />
-          <button type="submit">
-            <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/search-icon.png" alt="Search Icon">
-          </button>
-        </form>
-      </div>
-      <% if user_signed_in? %>
-      	<a rel="nofollow" data-method="delete" href="/users/sign_out" class="sign-up">Logout</a>
-      	<a href="/users/edit" class="sign-up">Edit Profile</a>      	
-      <% else %>
-      	<a href="/users/sign_up" class="sign-up">Sign Up</a>
-      	<a href="/users/sign_in" class="sign-up">Log In</a>
-      <% end %>
+    <% if user_signed_in? %>
+    	<a rel="nofollow" data-method="delete" href="/users/sign_out" class="sign-up">Logout</a>
+    	<a href="/users/edit" class="sign-up">Edit Profile</a>      	
+    <% else %>
+    	<a href="/users/sign_up" class="sign-up">Sign Up</a>
+    	<a href="/users/sign_in" class="sign-up">Log In</a>
+    <% end %>
     </div>
   </div>
 </header>
@@ -62,7 +53,7 @@
 
 <footer class="footer-2" role="contentinfo">
   <div class="footer-logo">
-    <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1.png" alt="Logo image">
+      <%= image_tag("logo_footer_360.png", :alt => "cavatina rooms") %>
   </div>
     <ul>
       <li><a href="/about_us">About</a></li>

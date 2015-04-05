@@ -5,14 +5,13 @@
 <% if user_signed_in? %>
   <div class="modal">
     <label for="modal-1">
-      <div class="modal-trigger">Click to Make a Reservation</div>
+      <div class="modal-trigger">Make a Reservation</div>
     </label>
     <input class="modal-state" id="modal-1" type="checkbox" />
     <div class="modal-fade-screen">
       <div class="modal-inner">
         <label class="modal-close" for="modal-1"></label>
         <h1>Make a reservation</h1>
-        <p class="modal-intro"></p>
         <p class="modal-content"><div class="something"><%= render 'form' %></div></p>
       </div>
     </div>
@@ -20,12 +19,29 @@
 <% end %>
 
 <div class="button-group">
-  <input  name="room_group" class="button-1" type="radio" checked>Show all</input><!-- show events for all rooms -->
-  <input  name="room_group" class="button-2" value="2" type="radio">Mountain King Hall</input> <!-- events for room_id: 2 -->
-  <input  name="room_group" class="button-3" value="3" type="radio">Al Pacino Recording Studio</input> <!-- events for room_id: 3 -->
-  <input  name="room_group" class="button-4" value="4" type="radio">Clear Heights Room</input> <!-- events for room_id: 4 -->
-  <input  name="room_group" class="button-5" value="5" type="radio">Hall of Destiny</input> <!-- events for room_id: 5 -->
+  <label>
+    <input type="radio" name="button-group" class="button-1" checked>
+    <span class="button-group-item">Show all</span>
+  </label>
+  <label>
+    <input type="radio" name="button-group" class="button-2" value="2">
+    <span class="button-group-item">Mountain King Hall</span>
+  </label>
+  <label>
+    <input type="radio" name="button-group" class="button-3" value="3">
+    <span class="button-group-item">Al Pacino Recording Studio</span>
+  </label>
+  <label>
+    <input type="radio" name="button-group" class="button-4" value="4">
+    <span class="button-group-item">Clear Heights Room</span>
+  </label>
+  <label>
+    <input type="radio" name="button-group" class="button-5" value="5">
+    <span class="button-group-item">Hall of Destiny</span>
+  </label>
 </div>
+
+
 
 <div id='calendar'></div>
 

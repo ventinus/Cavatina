@@ -1,6 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Listing Posts</h1>
+<%= link_to 'Start a Discussion', new_post_path %>
 
 <ul>
   <% @posts.each do |post| %>
@@ -10,4 +11,3 @@
 
 <br>
 
-<%= link_to 'New Post', new_post_path %> |
