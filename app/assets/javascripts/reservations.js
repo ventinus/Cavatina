@@ -139,6 +139,24 @@ $(document).on('ready page:load', function() {
       console.log('View: ' + view.name); 
       $(this).css('border-color', 'red');
       $(this).fullCalendar('updateEvent', event);
+    },
+
+    eventRender: function(event, element) {
+      // console.log(element);
+      console.log(event);
+      // element.qtip({
+      //   content: event.description + '<br />' + event.room_id,
+      //   style: {
+      //     background: 'black',
+      //     color: '#FFFFFF'
+      //   },
+      //   position: {
+      //     corner: {
+      //       target: 'center',
+      //       tooltip: 'bottomMiddle'
+      //     }
+      //   }
+      // });
     }
   });
 });

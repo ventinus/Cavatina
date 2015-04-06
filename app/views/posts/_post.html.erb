@@ -1,6 +1,6 @@
-<b><%= post.title %></b>
+<h1><b><%= post.title %></b></h1>
 <div class="content" style="background-color: #EEEEEE;">
-  <%= truncate post.content %>
+  <p><%= truncate post.content %></p>
 </div>
 
 <%= link_to "Reply", new_post_path(parent_id: post.id) %>

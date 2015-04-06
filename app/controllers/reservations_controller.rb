@@ -58,6 +58,10 @@ class ReservationsController < ApplicationController
   def update
     respond_to do |format|
       if @reservation.update(reservation_params)
+      start_time = reservation_params["time_in(4i)"] + ":" + reservation_params["time_in(5i)"]
+      end_time = reservation_params["time_out(4i)"] + ":" + reservation_params["time_out(5i)"]
+      @reservation.time_in = start_time
+      @reservation.time_out = end_time
         format.html { redirect_to @reservation, notice: 'Reservation was successfully updated.' }
         format.json { render :show, status: :ok, location: @reservation }
       else

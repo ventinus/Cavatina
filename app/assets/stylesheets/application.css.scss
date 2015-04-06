@@ -14,6 +14,15 @@
  *= require_self
  */
 
+
+ul {
+  list-style: none;
+}
+
+p {
+  font-size: 1.3em;
+}
+
 @import "bourbon";
 @import "neat";
 
