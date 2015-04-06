@@ -115,15 +115,13 @@ $(document).on('ready page:load', function() {
         minTime: "7:00:00",
         maxTime: "23:00:00"
         // timeFormat: 'h:mm'. options apply to agendaWeek and agendaDay views
-      },
+      }
     },
 
     dayClick: function(date, jsEvent, view) {
       if (view.name == "month" || view.name == "agendaWeek") {
         $('#calendar').fullCalendar('gotoDate', date);
         $('#calendar').fullCalendar('changeView', 'agendaDay');
-      } else {
-        // check out reservation2.js code
       }
       
 
