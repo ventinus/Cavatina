@@ -5,7 +5,7 @@ var allMyEvents = {
 var r1Events = {
   url: '/reservations.json',
   data: {
-    room_id: 2, //Mountain king hall
+    room_id: 1, //Mountain king hall
   },
   backgroundColor: 'yellow',
   textColor: 'black',
@@ -16,7 +16,7 @@ var r1Events = {
 var r2Events = {
   url: '/reservations.json',
   data: {
-    room_id: 3, //al pacino
+    room_id: 2, //al pacino
   },
   backgroundColor: 'blue',
   error: function(){
@@ -26,7 +26,7 @@ var r2Events = {
 var r3Events = {
   url: '/reservations.json',
   data: {
-    room_id: 4, //clear heights
+    room_id: 3, //clear heights
   },
   backgroundColor: 'green',
   error: function(){
@@ -36,7 +36,7 @@ var r3Events = {
 var r4Events = {
   url: '/reservations.json',
   data: {
-    room_id: 5, //hall of destiny
+    room_id: 4, //hall of destiny
   },
   backgroundColor: 'tomato'  ,
   error: function(){
