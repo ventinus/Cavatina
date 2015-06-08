@@ -1,3 +1,91 @@
 // Place all the styles related to the posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+.group:after {
+  content: "";
+  display: block; 
+  clear: both;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+button.right {
+  margin-top: 15px;
+}
+
+.buttons-div.right {
+  margin-top: 12px;
+}
+
+.post-form {
+  width: 200px;
+  margin: 0 auto;
+}
+
+#all-posts {
+  width: 730px;
+  margin: 0 auto;
+}
+
+.lead-post .field, 
+.lead-post .actions {
+  display: inline-block;
+}
+
+.lead-post input[type=text],
+.last input[type=text] {
+  width: 100%;
+}
+
+.reply p.left, .reply .buttons-div {
+  margin: 0;
+}
+
+.lead-post {
+  margin:0 auto 20px;
+  border:2px solid black;
+  padding:0 10px;
+}
+
+.reply {
+  border: 2px solid lightgrey;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.field {
+  width: 88.86%;
+}
+
+ul {
+  list-style: none;
+}
+
+p {
+  font-size: 1.3em;
+}
+
+.editable input[type=text] {
+  display:none;
+}
+
+.editable p.editMode input[type=text] {
+  display: block;
+}
+
+.editable p.editMode label {
+  display:none;
+}
+
+.noEdit input[type=text] {
+  display: block;
+}

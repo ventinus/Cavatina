@@ -1,13 +1,32 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Posts</h1>
 <%= link_to 'Start a Discussion', new_post_path %>
+	
+<div id="all-posts">
 
-<ul>
-  <% @posts.each do |post| %>
-    <li><%= render post %></li>
-  <% end %>
-</ul>
+	<div class="header-content group">
+		<h1 class="left">Discussion time</h1>
+		<% if user_signed_in? %>
+		  <div class="modal">
+		    <label for="modal-1">
+		      <div class="modal-trigger right">Make a Post</div>
+		    </label>
+		    <input class="modal-state" id="modal-1" type="checkbox" />
+		    <div class="modal-fade-screen">
+		      <div class="modal-inner">
+		        <label class="modal-close" for="modal-1"></label>
+		        <h1>Make a Post</h1>
+		        <p class="modal-content"><div class="post-form"><%= render 'form' %></div></p>
+		      </div>
+		    </div>
+		  </div>
+		<% end %>
+		<!-- <button class="right">Make a post</button> -->
+	</div>
 
-<br>
-
+	<div id="main-posts">
+		<% @posts.each do |post| %>
+				<%= render post %>		
+		<% end %>
+	</div>
+</div>

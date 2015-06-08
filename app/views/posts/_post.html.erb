@@ -1,17 +1,96 @@
-<h1><b><%= post.title %></b></h1>
-<div class="content" style="background-color: #EEEEEE;">
-  <p><%= truncate post.content %></p>
+<div class="lead-post">
+	<div class="post-header group">
+		<h2 class="left"><b><%= post.title %></b></h2>
+		<% if current_user && ( current_user.id == post.user_id ) %>
+			<div class="buttons-div right">
+				<button class="edit">Edit</button>
+				<button class="delete"><%= link_to "Delete", post, method: :delete, confirm: 'Are you sure?' %></button>
+			</div>
+		<% end %>
+	</div>
+
+	<div class="editable">
+		<p><strong><%= post.user.name %> says:</strong> <label><%= post.content %></label><input type="text"></p>
+	</div>
+	
+	<% if post.created_at == post.updated_at %>
+		<p>Posted at: <%= post.created_at %></p>
+	<% else %>
+		<p>Updated at: <%= post.updated_at %></p>
+	<% end %>
+
+	<% post.replies.each do |reply| %>
+	  <div class="reply editable">
+	  	<div class="group">
+		  	<p class="left"><strong><%= reply.user.name %> says:</strong> <label><%= reply.content %></label><input type="text"></p>
+
+		  	<% if current_user && ( current_user.id == reply.user_id ) %>
+					<div class="buttons-div right">
+						<button class="edit">Edit</button>
+						<button class="delete"><%= link_to "Delete", reply, method: :delete, confirm: 'Are you sure?' %></button>
+					</div>
+				<% end %>
+	  	</div>
+
+  		<% if reply.created_at == reply.updated_at %>
+				<p>Posted at: <%= reply.created_at %></p>
+			<% else %>
+				<p>Updated at: <%= reply.updated_at %></p>
+			<% end %>
+
+			<% reply.replies.each do |final| %>
+				<div class="reply">
+					<div class="group">
+				  	<p class="left"><strong><%= final.user.name %> says:</strong> <label><%= final.content %></label><input type="text"></p>
+
+				  	<% if current_user && ( current_user.id == final.user_id ) %>
+							<div class="buttons-div right">
+								<button class="edit">Edit</button>
+								<button class="delete"><%= link_to "Delete", final, method: :delete, confirm: 'Are you sure?' %></button>
+							</div>
+						<% end %>			  	
+					</div>
+
+		  		<% if final.created_at == final.updated_at %>
+						<p>Posted at: <%= final.created_at %></p>
+					<% else %>
+						<p>Updated at: <%= final.updated_at %></p>
+					<% end %>
+				</div>
+			<% end %>
+
+			<div class="noEdit">
+				<%= form_for @post, html: { id: "reply_form_#{reply.id}", class: "reply_form" } do |f| %>
+					<%= f.hidden_field :parent_id, :value => reply.id	%>
+					<%= f.hidden_field :title, :value => "" %>
+					<div class="field">
+					  <%= f.text_field :content, :placeholder => "Write a reply..." %>
+					</div>
+					<div class="actions">
+					  <%= f.submit "Comment" %>
+					</div>
+				<% end %> 
+			</div>
+	  </div>
+	<% end %>
+
+
+	<%= form_for @post, html: { id: "post_form_#{post.id}", class: "reply_form" } do |f| %>
+		<%= f.hidden_field :parent_id, :value => post.id	%>
+		<%= f.hidden_field :title, :value => "" %>
+		<div class="field last">
+		  <%= f.text_field :content, :placeholder => "Write a reply..." %>
+		</div>
+		<div class="actions">
+		  <%= f.submit "Comment" %>
+		</div>
+	<% end %>
 </div>
 
-<%= link_to "Reply", new_post_path(parent_id: post.id) %>
-<% if current_user && ( current_user.id == post.user_id ) %>
-	<%= link_to "Edit", edit_post_path(post) %>
-	<%= link_to "Delete", post, method: :delete, confirm: 'Are you sure?' %>
-<% end %>
-<ul>
-  <% post.replies.each do |reply| %>
-    <li>
-      <%= render reply %>
-    </li>
-  <% end %>
-</ul>
+
+<!-- make a post button should pop up a modal for making a post -->
+<!-- edit should pop up that modal but with the supplied data. or it can turn the text into the textbox with a save button that getts added (probably that way) -->
+<!-- delete button alert the are you sure message -->
+<!-- find a way to have the text input be flexible with teh changing message on the submit button -->
+<!-- add edit and delete buttons to each post if that user created it -->
+<!-- making a comment shouldnt reload the page... angular or just regular js? -->
