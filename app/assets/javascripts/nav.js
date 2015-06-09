@@ -27,13 +27,3 @@ $(document).on('ready page:load', function() {
 $(document).on('ready page:load', function(){
   $('.parallax').parallax()
 });
-
-$(document).on('ready page:load', function(){
-  var s = skrollr.init({
-    render: function(data) {
-        //Debugging - Log the current scroll position.
-        console.log(data.curTop);
-    }
-  }); 
-})
-

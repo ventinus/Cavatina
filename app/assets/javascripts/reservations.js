@@ -88,7 +88,7 @@ $(document).on('ready page:load', function(){
 
 $(document).on('ready page:load', function() {
   console.log('dup')
-
+  $('#calendar').html('');
   $('#calendar').fullCalendar({
     header: { left: 'today prev,next', center: 'title', right: 'month, agendaWeek, agendaDay' }, // buttons for switching between views
     buttonIcons: { prev: 'left-single-arrow', next: 'right-single-arrow' },
@@ -172,9 +172,15 @@ $(document).on('ready page:load', function(){
     }
   });
 
-  $(".modal-fade-screen, .modal-close").on("click", function() {
+  $(".modal-fade-screen").on("click", function() {
     $(".modal-state:checked").prop("checked", false).change();
   });
+
+  $(document).on("keydown", function(e){
+    if (e.keyCode == 27) {
+      $(".modal-state:checked").prop("checked", false).change();
+    }
+  })
 
   $(".modal-inner").on("click", function(e) {
     e.stopPropagation();
