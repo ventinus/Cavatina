@@ -3,7 +3,7 @@
 		<h2 class="left"><b><%= post.title %></b></h2>
 		<% if current_user && ( current_user.id == post.user_id ) %>
 			<div class="buttons-div right">
-				<button class="edit">Edit</button>
+				<button class="edit"><%= link_to "Edit", edit_post_path(post) %></button>
 				<button class="delete"><%= link_to "Delete", post, method: :delete, confirm: 'Are you sure?' %></button>
 			</div>
 		<% end %>
@@ -26,7 +26,7 @@
 
 		  	<% if current_user && ( current_user.id == reply.user_id ) %>
 					<div class="buttons-div right">
-						<button class="edit">Edit</button>
+						<button class="edit"><%= link_to "Edit", edit_post_path(reply) %></button>
 						<button class="delete"><%= link_to "Delete", reply, method: :delete, confirm: 'Are you sure?' %></button>
 					</div>
 				<% end %>
@@ -45,7 +45,7 @@
 
 				  	<% if current_user && ( current_user.id == final.user_id ) %>
 							<div class="buttons-div right">
-								<button class="edit">Edit</button>
+								<button class="edit"><%= link_to "Edit", edit_post_path(final) %></button>
 								<button class="delete"><%= link_to "Delete", final, method: :delete, confirm: 'Are you sure?' %></button>
 							</div>
 						<% end %>			  	
